@@ -12,7 +12,7 @@ library(pca.utils)
 
 ## The pca.utils package
 
-This package aims at making standard PCA related tasks easier, requiring less lines of code.
+This package aims at making standard PCA related tasks easier, requiring fewer lines of code.
 At this point in provides two main functions:
 
 * plot_pca: which quickly plots 2D or 3D PCA results.
