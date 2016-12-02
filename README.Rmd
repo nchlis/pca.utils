@@ -22,7 +22,7 @@ At this point in provides two main functions:
 ### plot_pca() example
 
 Here we will quickly create 2D and 3D PCA plots of the iris data set, using 1 line of code.
-```{r plot_pca}
+```{r plot_pca, eval=FALSE}
 
 data(iris)
 
@@ -32,6 +32,9 @@ plot_pca(x=iris[1:4],col=iris$Species)
 # 3D PCA
 plot_pca(x=iris[1:4],npcs=3,col=iris$Species)
 ```
+
+![2D PCA plot](pca2d.png)
+
 ![3D PCA plot](pca3d.png)
 
 ### project_pca() example
@@ -39,7 +42,7 @@ plot_pca(x=iris[1:4],npcs=3,col=iris$Species)
 We will use 100 random data points of the iris data set to compute the PCA space and then
 project the remaining new 50 data points in the existing PCA space, as follows:
 
-```{r project_pca}
+```{r project_pca, eval=FALSE}
 
 set.seed(1)
 data(iris)
@@ -61,6 +64,8 @@ Xpc=project_pca(as.matrix(iris[!ix,1:4]),pc)
 #plot the new data points in the existing plot
 points(Xpc[,1],Xpc[,2])
 ```
+
+![3D PCA plot](project_pca.png)
 
 ## Installation instructions
 
