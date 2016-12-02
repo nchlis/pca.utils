@@ -1,0 +1,9 @@
+Package: pca.utils
+Title: R package for easy plotting of PCA results
+Version: 0.1
+Authors@R: person("Nikolaos-Kosmas", "Chlis", email = "nchlis@isc.tuc.gr", role = c("aut", "cre"))
+Description: R package for easy plotting of PCA results
+Depends: R (>= 3.3.1)
+License: GNU GENERAL PUBLIC LICENSE Version 3
+Encoding: UTF-8
+LazyData: true
