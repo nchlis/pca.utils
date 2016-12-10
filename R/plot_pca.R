@@ -1,7 +1,7 @@
 #' Plot PCA results
 #'
 #'inputs:
-#'@param x: data matrix or prcomp object to plot.
+#'@param x: data frame, matrix or prcomp object to plot.
 #'@param npcs: numeric vector indicating PCs to plot, defaults to c(1,2). If length(npcs)>3, only the first 3 elements will be used.
 #'@param xlab: xlabel, see \link[graphics]{par}.
 #'@param ylab: ylabel, see \link[graphics]{par}, see \link[graphics]{par}.

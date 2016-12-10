@@ -53,13 +53,13 @@ ix=rep(FALSE,nrow(iris))
 ix[sample(nrow(iris),100)]=TRUE
 
 # perform PCA
-pc=stats::prcomp(as.matrix(iris[ix,1:4]))
+pc=stats::prcomp(iris[ix,1:4])
 
 # plot the PCA
 plot_pca(pc,col=iris$Species[ix])
 
 # project the remaining 50 data points (given by !ix) in the existing PCA space
-Xpc=project_pca(as.matrix(iris[!ix,1:4]),pc)
+Xpc=project_pca(iris[!ix,1:4],pc)
 
 #plot the new data points in the existing plot
 points(Xpc[,1],Xpc[,2])

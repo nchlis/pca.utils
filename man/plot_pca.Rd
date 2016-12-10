@@ -10,7 +10,7 @@ plot_pca(x, npcs = c(1, 2), xlab = NULL, ylab = NULL, zlab = NULL,
   legend.col = NULL, legend.bg = NULL)
 }
 \arguments{
-\item{x:}{data matrix or prcomp object to plot.}
+\item{x:}{data frame, matrix or prcomp object to plot.}
 
 \item{npcs:}{numeric vector indicating PCs to plot, defaults to c(1,2). If length(npcs)>3, only the first 3 elements will be used.}
 
