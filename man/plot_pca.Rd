@@ -6,8 +6,9 @@
 \usage{
 plot_pca(x, npcs = c(1, 2), xlab = NULL, ylab = NULL, zlab = NULL,
   main = "PCA results", pch = NULL, col = NULL, bg = NULL, cex = NULL,
-  add.legend = FALSE, legend.position = "bottomleft", legend.text = NULL,
-  legend.col = NULL, legend.bg = NULL)
+  pal = RColorBrewer::brewer.pal(8, "Dark2"), add.legend = FALSE,
+  legend.position = "bottomleft", legend.text = NULL, legend.col = NULL,
+  legend.bg = NULL)
 }
 \arguments{
 \item{x:}{data frame, matrix or prcomp object to plot.}
@@ -29,6 +30,9 @@ plot_pca(x, npcs = c(1, 2), xlab = NULL, ylab = NULL, zlab = NULL,
 \item{bg:}{vector of plotting character background colors, see \link[graphics]{par}.}
 
 \item{cex:}{plotting character size. Defaults to 1 for 2D and to 7 for 3D plots.}
+
+\item{pal:}{color palette. Defaults to the colorblind friendly RColorBrewer::brewer.pal(8,"Dark2"). Setting pal to NULL, will lead to the
+default R colors being used in the plots.}
 
 \item{add.legend:}{add a legend to the plot, defaults to FALSE.}
 

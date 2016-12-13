@@ -6,7 +6,8 @@ Description: R package for easy plotting of PCA results
 Depends:
     R (>= 3.3.1),
 	stats,
-	rgl
+	rgl,
+	RColorBrewer
 License: GNU GENERAL PUBLIC LICENSE Version 3
 Encoding: UTF-8
 LazyData: true

@@ -11,6 +11,8 @@
 #'@param col: vector of plotting character colors, see \link[graphics]{par}.
 #'@param bg: vector of plotting character background colors, see \link[graphics]{par}.
 #'@param cex: plotting character size. Defaults to 1 for 2D and to 7 for 3D plots.
+#'@param pal: color palette. Defaults to the colorblind friendly RColorBrewer::brewer.pal(8,"Dark2"). Setting pal to NULL, will lead to the
+#'default R colors being used in the plots.
 #'@param add.legend: add a legend to the plot, defaults to FALSE.
 #'@param legend.position: , argument to \link[graphics]{legend}. Position of the legend in the plot, defaults to 'bottomleft'.
 #'@param legend.text: character vector to appear in the legend.
@@ -34,7 +36,7 @@
 #'
 #'@export
 plot_pca = function(x, npcs=c(1,2), xlab=NULL, ylab=NULL, zlab=NULL, main='PCA results', pch=NULL,col=NULL, bg=NULL,cex=NULL,
-                    add.legend=FALSE, legend.position='bottomleft', legend.text=NULL, legend.col = NULL, legend.bg = NULL)
+                    pal=RColorBrewer::brewer.pal(8,"Dark2"),add.legend=FALSE, legend.position='bottomleft', legend.text=NULL, legend.col = NULL, legend.bg = NULL)
 {
   if(class(x)=='prcomp')
   {
@@ -47,6 +49,13 @@ plot_pca = function(x, npcs=c(1,2), xlab=NULL, ylab=NULL, zlab=NULL, main='PCA r
   if(class(col)=='factor'){col=as.numeric(col)}#convert to numeric
   if(class(bg)=='factor'){bg=as.numeric(bg)}#convert to numeric
   if((is.null(col)==F)&(is.null(bg)==T)){bg=col}#set bg to save value as col, if only col has been provided
+
+  #a palette has been provided
+  if(is.null(pal)==FALSE)
+  {
+    col=pal[col]
+    bg=pal[bg]
+  }
 
   #calculate the explained variance by the principal components
   var_explained=pc$sdev^2 / sum(pc$sdev^2)
@@ -101,5 +110,5 @@ plot_pca = function(x, npcs=c(1,2), xlab=NULL, ylab=NULL, zlab=NULL, main='PCA r
   }
 
   pc$var_explained=var_explained
-  return(pc)
+  return(base::invisible(pc))
 }
