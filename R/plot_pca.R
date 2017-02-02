@@ -46,6 +46,7 @@ plot_pca = function(x, npcs=c(1,2), xlab=NULL, ylab=NULL, zlab=NULL, main='PCA r
     pc=stats::prcomp(as.matrix(x))
   }
 
+  if(is.null(col)==TRUE){col=rep(1,NROW(x))}
   if(class(col)=='factor'){col=as.numeric(col)}#convert to numeric
   if(class(bg)=='factor'){bg=as.numeric(bg)}#convert to numeric
   if((is.null(col)==F)&(is.null(bg)==T)){bg=col}#set bg to save value as col, if only col has been provided
