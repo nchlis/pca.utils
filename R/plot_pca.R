@@ -82,7 +82,7 @@ plot_pca = function(x, npcs=c(1,2), xlab=NULL, ylab=NULL, zlab=NULL, main='PCA r
 
   if(length(npcs)==2)
   {
-    plot(pc$x[,1],pc$x[,2],col=col,pch=pch,bg=col,cex=cex,
+    plot(pc$x[,npcs[1]],pc$x[,npcs[2]],col=col,pch=pch,bg=col,cex=cex,
          xlab=xlab,
          ylab=ylab,
          main=main)
@@ -96,7 +96,7 @@ plot_pca = function(x, npcs=c(1,2), xlab=NULL, ylab=NULL, zlab=NULL, main='PCA r
   }else
   {
     if(is.null(zlab)){zlab=paste0('PC',npcs[3],': ',var_explained_percentage[3],'%')}
-    rgl::plot3d(pc$x[,1],pc$x[,2],pc$x[,3],col=col,pch=pch,bg=col,size=cex,
+    rgl::plot3d(pc$x[,npcs[1]],pc$x[,npcs[2]],pc$x[,npcs[3]],col=col,pch=pch,bg=col,size=cex,
          xlab=xlab,
          ylab=ylab,
          zlab=zlab,
