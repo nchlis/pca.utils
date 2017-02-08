@@ -8,7 +8,7 @@ plot_pca(x, npcs = c(1, 2), xlab = NULL, ylab = NULL, zlab = NULL,
   main = "PCA results", pch = NULL, col = NULL, bg = NULL, cex = NULL,
   pal = RColorBrewer::brewer.pal(8, "Dark2"), add.legend = FALSE,
   legend.position = "bottomleft", legend.text = NULL, legend.col = NULL,
-  legend.bg = NULL)
+  legend.bg = NULL, legend.inset = 0, ...)
 }
 \arguments{
 \item{x:}{data frame, matrix or prcomp object to plot.}
@@ -43,6 +43,10 @@ default R colors being used in the plots.}
 \item{legend.col:}{color of legend elements, defaults to unique(col)}
 
 \item{legend.bg:}{background color of legend elements, defaults to unique(bg)}
+
+\item{legend.inset:}{inset distance(s) from the margins as a fraction of the plot region when legend is placed by keyword}
+
+\item{...:}{arguments passed to the plot() or rgl::plot3d() functions}
 }
 \value{
 a list with class "prcomp", containing the same elements as \link[stats]{prcomp}:

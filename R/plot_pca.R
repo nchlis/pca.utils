@@ -18,6 +18,8 @@
 #'@param legend.text: character vector to appear in the legend.
 #'@param legend.col: color of legend elements, defaults to unique(col)
 #'@param legend.bg: background color of legend elements, defaults to unique(bg)
+#'@param legend.inset: inset distance(s) from the margins as a fraction of the plot region when legend is placed by keyword
+#'@param ...: arguments passed to the plot() or rgl::plot3d() functions
 #'
 #'@return a list with class "prcomp", containing the same elements as \link[stats]{prcomp}:
 #'\itemize{
@@ -36,7 +38,8 @@
 #'
 #'@export
 plot_pca = function(x, npcs=c(1,2), xlab=NULL, ylab=NULL, zlab=NULL, main='PCA results', pch=NULL,col=NULL, bg=NULL,cex=NULL,
-                    pal=RColorBrewer::brewer.pal(8,"Dark2"),add.legend=FALSE, legend.position='bottomleft', legend.text=NULL, legend.col = NULL, legend.bg = NULL)
+                    pal=RColorBrewer::brewer.pal(8,"Dark2"),add.legend=FALSE, legend.position='bottomleft', legend.text=NULL, legend.col = NULL,
+                    legend.bg = NULL, legend.inset = 0, ...)
 {
   if(class(x)=='prcomp')
   {
@@ -85,13 +88,13 @@ plot_pca = function(x, npcs=c(1,2), xlab=NULL, ylab=NULL, zlab=NULL, main='PCA r
     plot(pc$x[,npcs[1]],pc$x[,npcs[2]],col=col,pch=pch,bg=col,cex=cex,
          xlab=xlab,
          ylab=ylab,
-         main=main)
+         main=main, ...)
 
     if(add.legend==TRUE)
     {
       if(is.null(legend.col)){legend.col=unique(col)}
       if(is.null(legend.bg)){legend.bg=unique(bg)}
-      legend(legend.position,legend=legend.text, lty=rep(NA,length(legend.text)), pch = pch, col = legend.col, pt.bg = legend.bg, lwd=2.5)
+      legend(legend.position,legend=legend.text, lty=rep(NA,length(legend.text)), pch = pch, col = legend.col, pt.bg = legend.bg, lwd=2.5, inset=legend.inset)
     }
   }else
   {
@@ -100,7 +103,7 @@ plot_pca = function(x, npcs=c(1,2), xlab=NULL, ylab=NULL, zlab=NULL, main='PCA r
          xlab=xlab,
          ylab=ylab,
          zlab=zlab,
-         main=main)
+         main=main, ...)
 
     if(add.legend==TRUE)
     {
